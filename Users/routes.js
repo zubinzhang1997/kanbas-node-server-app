@@ -18,20 +18,9 @@ export default function UserRoutes(app) {
     };
 
 
-    const signin = async (req, res) => {
-        const { username, password } = req.body;
-        const currentUser = await dao.findUserByCredentials(username, password);
-        try {
-            if (currentUser) {
-                req.session["currentUser"] = currentUser;
-                globalCurrentUser = currentUser;
-                res.json(currentUser);
-            } else {
-                throw new Error("Invalid Credential");
-            }
-        } catch (error) {
-            res.status(401).send(error.message);
-        }
+    const findUserById = async (req, res) => {
+        const user = await dao.findUserById(req.params.userId);
+        res.json(user);
     };
 
     const profile = async (req, res) => {
@@ -75,9 +64,23 @@ export default function UserRoutes(app) {
         return;
     };
 
-    const findUserById = async (req, res) => {
-        const user = await dao.findUserById(req.params.userId);
-        res.json(user);
+
+
+
+    const signin = async (req, res) => {
+        const { username, password } = req.body;
+        const currentUser = await dao.findUserByCredentials(username, password);
+        try {
+            if (currentUser) {
+                req.session["currentUser"] = currentUser;
+                globalCurrentUser = currentUser;
+                res.json(currentUser);
+            } else {
+                throw new Error("Invalid Credential");
+            }
+        } catch (error) {
+            res.status(401).send(error.message);
+        }
     };
 
     const signup = async (req, res) => {
