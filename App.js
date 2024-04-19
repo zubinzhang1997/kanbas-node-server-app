@@ -5,9 +5,7 @@ import mongoose from "mongoose";
 import cors from 'cors';
 import CourseRoutes from "./Kanbas/courses/routes.js";
 import AssignmentRoutes from "./Kanbas/assignments/routes.js";
-
 import ModuleRoutes from "./Kanbas/modules/routes.js";
-
 import UserRoutes from "./Users/routes.js";
 import Hello from "./Hello.js";
 import Lab5 from "./Lab5.js";
