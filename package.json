@@ -8,6 +8,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node App.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zubinzhang1997/kanbas-node-server-app.git"
+  },
+  "keywords": [
+    "Node",
+    "REST",
+    "Server",
+    "HTTP"
+  ],
   "author": "Zubin Zhang",
   "license": "ISC",
   "dependencies": {
